@@ -1,3 +1,7 @@
+// LAYOUT INVARIANT:
+// - SiteHeader/SiteFooter are rendered ONLY here.
+// - Page sections must not render global navigation.
+
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import type { Metadata } from "next";

@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "@/components/site-header",
+            "message": "Do not import SiteHeader outside src/app/layout.tsx. Global navigation is layout-owned."
+          },
+          {
+            "name": "@/components/site-footer",
+            "message": "Do not import SiteFooter outside src/app/layout.tsx. Global footer is layout-owned."
+          }
+        ]
+      }
+    ]
+  }
+}

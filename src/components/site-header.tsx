@@ -5,7 +5,7 @@ export default function SiteHeader() {
     <header className="border-b bg-white">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="text-lg font-semibold tracking-tight">
-          Matrimony Utsav
+          Matrimony Utsav - Global Header
         </Link>
 
         <nav className="flex items-center gap-4 text-sm font-medium">
