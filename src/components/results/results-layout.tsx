@@ -1,3 +1,5 @@
+import React from "react";
+
 interface ResultsLayoutProps {
   sidebar: React.ReactNode;
   topBar: React.ReactNode;
@@ -10,23 +12,23 @@ export default function ResultsLayout({
   children,
 }: ResultsLayoutProps) {
   return (
-    <section className="bg-black text-white">
-      <div className="mx-auto flex max-w-6xl">
+    <section className="bg-black text-white w-full">
+      <div className="flex w-full">
         {/* Sidebar */}
-        <aside className="w-72 flex-shrink-0 bg-white/5 p-4 ring-1 ring-white/10 backdrop-blur sticky top-24 h-screen overflow-y-auto">
+        <aside className="w-72 shrink-0 bg-white/5 p-4 ring-1 ring-white/10 backdrop-blur sticky top-24 h-screen overflow-y-auto">
           {sidebar}
         </aside>
 
         {/* Main Content */}
-        <div className="flex-1 p-6">
+        <main className="flex-1 min-w-0 w-full p-6">
           {/* Top Bar */}
           <div className="mb-6">{topBar}</div>
 
           {/* Content */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid w-full gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
             {children}
           </div>
-        </div>
+        </main>
       </div>
     </section>
   );

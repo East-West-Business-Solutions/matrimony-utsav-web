@@ -1,6 +1,5 @@
 import ResultsLayout from "@/components/results/results-layout";
 import { FiltersSidebar } from "@/components/results/filters-sidebar";
-import { MOCK_VENUES } from "@/data/mock/venues";
 import VenuesResultsCountClient from "../../components/results/venues-results-count-client";
 import VenuesResultsClient from "../../components/results/venues-results-client";
 import { Suspense } from "react";
