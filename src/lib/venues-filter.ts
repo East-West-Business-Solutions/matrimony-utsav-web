@@ -1,5 +1,13 @@
 export type VenueSort = "recommended" | "rating" | "price_asc" | "price_desc";
 
+export type Venue = {
+  city: string;
+  category: string;
+  price: number;
+  rating: number;
+  images?: string[]; // Optional images field
+};
+
 export function parseVenueQueryParams(searchParams: URLSearchParams) {
   const city = (searchParams.get("city") ?? "").trim();
 
