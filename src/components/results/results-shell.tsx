@@ -23,7 +23,7 @@ export default function ResultsShell({
 
   return (
     <section className="bg-black py-16">
-      <div className="mx-auto max-w-6xl px-4 text-center">
+      <div className="px-4 text-center w-full">
         {/* Title and Subtitle */}
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">
           {title}
@@ -35,7 +35,7 @@ export default function ResultsShell({
         )}
 
         {/* Refine Search Card */}
-        <div className="mt-8 mx-auto w-full max-w-4xl rounded-lg bg-white/5 p-6 text-left ring-1 ring-white/10 backdrop-blur">
+        <div className="mt-8 mx-auto w-full rounded-lg bg-white/5 p-6 text-left ring-1 ring-white/10 backdrop-blur">
           <form method="GET" action={basePath} className="space-y-4">
             {/* City Dropdown */}
             <div>
