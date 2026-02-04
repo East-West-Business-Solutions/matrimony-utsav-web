@@ -16,7 +16,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const tabs = ["Venues", "Services", "Products"];
-const categoriesMap = {
+const categoriesMap: { [key: string]: string[] } = {
   Venues: ["Banquet Halls", "Wedding Resorts", "Convention Centers", "Outdoor Lawns", "Hotels"],
   Services: ["Photography", "Makeup", "Decoration", "Catering", "Mehendi", "DJ & Music"],
   Products: ["Invitations", "Return Gifts", "Jewellery", "Accessories", "Décor Items"],

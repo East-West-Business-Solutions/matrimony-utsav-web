@@ -1,7 +1,8 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export type FiltersSidebarProps = {
   cities?: string[];
@@ -9,22 +10,14 @@ export type FiltersSidebarProps = {
 };
 
 export function FiltersSidebar({ cities = [], categories = [] }: FiltersSidebarProps) {
-  console.log("Debug: cities prop in FiltersSidebar:", cities); // Temporary debug log
-
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  console.log("Debug: searchParams.get('city'):", searchParams.get("city")); // Debug log for city filter
+  const initialMin = searchParams.get("minPrice") ?? "";
+  const initialMax = searchParams.get("maxPrice") ?? "";
+  const priceKey = `${initialMin}|${initialMax}`;
 
-  const [selectedCity, setSelectedCity] = useState(searchParams.get("city") || "");
-  const [localMinPrice, setLocalMinPrice] = useState(searchParams.get("minPrice") || "");
-  const [localMaxPrice, setLocalMaxPrice] = useState(searchParams.get("maxPrice") || "");
-  const [validationMessage, setValidationMessage] = useState("");
-
-  useEffect(() => {
-    setLocalMinPrice(searchParams.get("minPrice") || "");
-    setLocalMaxPrice(searchParams.get("maxPrice") || "");
-  }, [searchParams]);
+  const selectedCity = searchParams.get("city") ?? "";
 
   const updateQuery = (params: Record<string, string | null>) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
@@ -40,38 +33,6 @@ export function FiltersSidebar({ cities = [], categories = [] }: FiltersSidebarP
 
   const clearAll = () => {
     updateQuery({ city: null, categories: null, minPrice: null, maxPrice: null, sort: null });
-    setSelectedCity(""); // Reset selected city to "All cities"
-    setLocalMinPrice(""); // Reset minPrice
-    setLocalMaxPrice(""); // Reset maxPrice
-  };
-
-  const handleMinPriceChange = (value: string) => {
-    const sanitizedValue = value === "" ? "" : Math.max(0, parseFloat(value) || 0).toString();
-    setLocalMinPrice(sanitizedValue);
-    if (localMaxPrice && parseFloat(sanitizedValue) > parseFloat(localMaxPrice)) {
-      setValidationMessage("Min price cannot exceed max price.");
-    } else {
-      setValidationMessage("");
-    }
-  };
-
-  const handleMaxPriceChange = (value: string) => {
-    const sanitizedValue = value === "" ? "" : Math.max(0, parseFloat(value) || 0).toString();
-    setLocalMaxPrice(sanitizedValue);
-    if (localMinPrice && parseFloat(sanitizedValue) < parseFloat(localMinPrice)) {
-      setValidationMessage("Max price cannot be less than min price.");
-    } else {
-      setValidationMessage("");
-    }
-  };
-
-  const applyPriceFilter = () => {
-    if (validationMessage) return; // Prevent Apply if validation fails
-    const updatedParams: Record<string, string | null> = {
-      minPrice: localMinPrice || null,
-      maxPrice: localMaxPrice || null,
-    };
-    updateQuery(updatedParams);
   };
 
   return (
@@ -94,9 +55,8 @@ export function FiltersSidebar({ cities = [], categories = [] }: FiltersSidebarP
           className="bg-black text-white border border-white/20 rounded px-2 py-2 w-full text-sm"
           value={selectedCity}
           onChange={(e) => {
-            const selectedCity = e.target.value;
-            setSelectedCity(selectedCity);
-            updateQuery({ city: selectedCity || null });
+            const newCity = e.target.value;
+            updateQuery({ city: newCity || null });
           }}
           aria-label="City filter"
         >
@@ -138,37 +98,17 @@ export function FiltersSidebar({ cities = [], categories = [] }: FiltersSidebarP
       </div>
 
       {/* Price Section */}
-      <div>
-        <h3 className="text-sm font-semibold">Price</h3>
-        <div className="flex items-center space-x-2">
-          <input
-            type="number"
-            placeholder="Min"
-            value={localMinPrice}
-            onChange={(e) => handleMinPriceChange(e.target.value)}
-            className="w-full p-1 text-sm border rounded"
-            aria-label="Minimum price"
-          />
-          <input
-            type="number"
-            placeholder="Max"
-            value={localMaxPrice}
-            onChange={(e) => handleMaxPriceChange(e.target.value)}
-            className="w-full p-1 text-sm border rounded"
-            aria-label="Maximum price"
-          />
-        </div>
-        {validationMessage && (
-          <p className="text-xs text-red-500 mt-1">{validationMessage}</p>
-        )}
-        <button
-          onClick={applyPriceFilter}
-          className={`mt-2 w-full text-sm text-white bg-blue-500 rounded p-1 hover:bg-blue-600 ${validationMessage ? "opacity-50 cursor-not-allowed" : ""}`}
-          disabled={!!validationMessage}
-        >
-          Apply
-        </button>
-      </div>
+      <PriceRangeFilter
+        key={priceKey}
+        initialMin={initialMin}
+        initialMax={initialMax}
+        onApply={(min, max) => {
+          updateQuery({
+            minPrice: min || null,
+            maxPrice: max || null,
+          });
+        }}
+      />
 
       {/* Sort Section */}
       <div>
@@ -194,6 +134,80 @@ export function FiltersSidebar({ cities = [], categories = [] }: FiltersSidebarP
           ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+function PriceRangeFilter({
+  initialMin,
+  initialMax,
+  onApply,
+}: {
+  initialMin: string;
+  initialMax: string;
+  onApply: (min: string, max: string) => void;
+}) {
+  const [minPrice, setMinPrice] = useState(initialMin);
+  const [maxPrice, setMaxPrice] = useState(initialMax);
+  const [validationMessage, setValidationMessage] = useState("");
+
+  const handleMinPriceChange = (value: string) => {
+    const sanitizedValue = value === "" ? "" : Math.max(0, parseFloat(value) || 0).toString();
+    setMinPrice(sanitizedValue);
+    if (maxPrice && parseFloat(sanitizedValue) > parseFloat(maxPrice)) {
+      setValidationMessage("Min price cannot exceed max price.");
+    } else {
+      setValidationMessage("");
+    }
+  };
+
+  const handleMaxPriceChange = (value: string) => {
+    const sanitizedValue = value === "" ? "" : Math.max(0, parseFloat(value) || 0).toString();
+    setMaxPrice(sanitizedValue);
+    if (minPrice && parseFloat(sanitizedValue) < parseFloat(minPrice)) {
+      setValidationMessage("Max price cannot be less than min price.");
+    } else {
+      setValidationMessage("");
+    }
+  };
+
+  const handleApply = () => {
+    if (!validationMessage) {
+      onApply(minPrice, maxPrice);
+    }
+  };
+
+  return (
+    <div>
+      <h3 className="text-sm font-semibold">Price</h3>
+      <div className="flex items-center space-x-2">
+        <input
+          type="number"
+          placeholder="Min"
+          value={minPrice}
+          onChange={(e) => handleMinPriceChange(e.target.value)}
+          className="w-full p-1 text-sm border rounded"
+          aria-label="Minimum price"
+        />
+        <input
+          type="number"
+          placeholder="Max"
+          value={maxPrice}
+          onChange={(e) => handleMaxPriceChange(e.target.value)}
+          className="w-full p-1 text-sm border rounded"
+          aria-label="Maximum price"
+        />
+      </div>
+      {validationMessage && (
+        <p className="text-xs text-red-500 mt-1">{validationMessage}</p>
+      )}
+      <button
+        onClick={handleApply}
+        className={`mt-2 w-full text-sm text-white bg-blue-500 rounded p-1 hover:bg-blue-600 ${validationMessage ? "opacity-50 cursor-not-allowed" : ""}`}
+        disabled={!!validationMessage}
+      >
+        Apply
+      </button>
     </div>
   );
 }
