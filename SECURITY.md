@@ -1,8 +1,7 @@
 # Security Policy
 
 ## Reporting a Vulnerability
-
-Please report security vulnerabilities responsibly.
+branPlease report security vulnerabilities responsibly.
 
 Preferred method:
 - Use GitHub’s private security reporting (Security tab → “Report a vulnerability”), if enabled.
