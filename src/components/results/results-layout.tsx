@@ -25,9 +25,7 @@ export default function ResultsLayout({
           <div className="mb-6">{topBar}</div>
 
           {/* Content */}
-          <div className="grid w-full gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-            {children}
-          </div>
+          <div className="w-full">{children}</div>
         </main>
       </div>
     </section>

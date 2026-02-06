@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Venue } from "@/data/mock/venues";
 
 function VenueCardImage({ src, alt }: { src?: string; alt: string }) {
-  const [imgSrc, setImgSrc] = useState(src ?? "/venues/placeholder.jpg");
+  const [imgSrc, setImgSrc] = useState(src ?? "/Venues/placeholder.jpg");
 
   return (
     <Image
@@ -16,7 +16,7 @@ function VenueCardImage({ src, alt }: { src?: string; alt: string }) {
       alt={alt}
       fill
       className="w-full h-48 object-cover"
-      onError={() => setImgSrc("/venues/placeholder.jpg")}
+      onError={() => setImgSrc("/Venues/placeholder.jpg")}
     />
   );
 }

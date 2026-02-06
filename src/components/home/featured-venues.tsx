@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const venues = [
   {
@@ -7,20 +8,23 @@ const venues = [
     price: "₹2,50,000",
     rating: "4.9",
     reviews: "156 reviews",
+    image: "/Venues/venue1.jpg",
   },
   {
     name: "Garden Paradise Resort",
-    city: "Jaipur",
+    city: "Mumbai",
     price: "₹3,00,000",
     rating: "4.8",
     reviews: "203 reviews",
+    image: "/Venues/venue2.jpg",
   },
   {
     name: "Grand Heritage Hall",
-    city: "Mumbai",
+    city: "Bangalore",
     price: "₹2,20,000",
     rating: "4.7",
     reviews: "178 reviews",
+    image: "/Venues/venue3.jpg",
   },
 ];
 
@@ -44,8 +48,8 @@ export default function FeaturedVenues() {
         </div>
 
         <Link
-          href="#"
-          className="inline-flex items-center gap-2 rounded-lg border bg-white px-3 py-2 text-sm font-semibold hover:bg-slate-50"
+          href="/venues"
+          className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
         >
           View All <span aria-hidden>→</span>
         </Link>
@@ -57,8 +61,14 @@ export default function FeaturedVenues() {
             key={v.name}
             className="overflow-hidden rounded-2xl border bg-white shadow-sm"
           >
-            {/* Image placeholder */}
             <div className="relative h-44 bg-slate-200">
+              <Image
+                src={v.image}
+                alt={v.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
               <div className="absolute right-3 top-3 rounded-full bg-rose-800 px-3 py-1 text-xs font-semibold text-white">
                 {v.price}
               </div>

@@ -27,9 +27,9 @@ const companyLinks = [
 
 const partnerLinks = [
   { label: "Parinay.com – Matrimony", href: "https://www.parinay.com" },
-  { label: "Matrimony Utsav – Venues", href: "#" },
-  { label: "Matrimony Utsav – Services", href: "#" },
-  { label: "Matrimony Utsav – Products", href: "#" },
+  { label: "Mohan Utsav – Venues", href: "#" },
+  { label: "Mohan Utsav – Services", href: "#" },
+  { label: "Mohan Utsav – Products", href: "#" },
   { label: "Photography Partners", href: "#" },
   { label: "Makeup & Styling Partners", href: "#" },
   { label: "Decor & Event Partners", href: "#" },
@@ -90,7 +90,7 @@ export default function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-4">
           {/* Column 1 */}
           <div>
-            <div className="text-2xl font-bold tracking-tight">Matrimony Utsav</div>
+            <div className="text-2xl font-bold tracking-tight">Mohan Utsav</div>
             <ul className="mt-6 space-y-3 text-sm text-slate-300">
               {platformLinks.map((l) => (
                 <li key={l.label}>
@@ -190,7 +190,7 @@ export default function SiteFooter() {
                   </Link>
                 </div>
                 <p className="mt-4 text-xs leading-5 text-slate-400">
-                  Matrimony Utsav is part of the Parinay ecosystem. Please report
+                  Mohan Utsav is part of the Parinay ecosystem. Please report
                   inappropriate content via the “Report a Problem” link.
                 </p>
               </div>
@@ -201,7 +201,7 @@ export default function SiteFooter() {
         {/* Bottom legal */}
         <div className="mt-12 border-t border-white/10 pt-6 text-xs text-slate-400">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <div>© {new Date().getFullYear()} Matrimony Utsav. All rights reserved.</div>
+            <div>© {new Date().getFullYear()} Mohan Utsav. All rights reserved.</div>
             <div>All trademarks are the property of their respective owners.</div>
           </div>
         </div>
