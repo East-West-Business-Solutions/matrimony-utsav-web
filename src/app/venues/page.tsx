@@ -1,7 +1,7 @@
 import ResultsLayout from "@/components/results/results-layout";
 import { FiltersSidebar } from "@/components/results/filters-sidebar";
 import Breadcrumbs from "@/components/results/breadcrumbs";
-import VenuesResultsCountClient from "@/components/results/venues-results-count-client";
+import ResultsToolbar from "@/components/results/results-toolbar";
 import VenuesResultsClient from "@/components/results/venues-results-client";
 import { Suspense } from "react";
 
@@ -21,6 +21,7 @@ export default function VenuesPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <ResultsLayout
+        variant="commerce"
         sidebar={
           <FiltersSidebar
             cities={CITIES}
@@ -32,12 +33,9 @@ export default function VenuesPage() {
             <Breadcrumbs
               sectionLabel="Venues"
               sectionHref="/venues"
-              variant="dark"
+              variant="light"
             />
-            <div className="flex items-center justify-between">
-              <h1 className="text-2xl font-semibold">Venues</h1>
-              <VenuesResultsCountClient />
-            </div>
+            <ResultsToolbar title="Venues" dataSource="venues" />
           </>
         }
       >
