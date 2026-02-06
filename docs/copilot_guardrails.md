@@ -1,4 +1,4 @@
-# Copilot Guardrails – Matrimony Utsav
+# Copilot Guardrails – Mohan Utsav
 
 These rules MUST be followed for all code changes without exception.
 

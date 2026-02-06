@@ -49,7 +49,7 @@ export default function Hero() {
     <section className="bg-black py-16">
       <div className="mx-auto max-w-6xl px-4 text-center">
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-          Matrimony Utsav
+          Mohan Utsav
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-sm text-white/70 sm:text-base">
           Explore trusted wedding vendors, services, and products for your special day.

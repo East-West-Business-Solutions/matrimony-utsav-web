@@ -13,7 +13,7 @@ const geistSans = { variable: GeistSans.variable };
 const geistMono = { variable: GeistMono.variable };
 
 export const metadata: Metadata = {
-  title: "Matrimony Utsav",
+  title: "Mohan Utsav",
   description: "Wedding vendors, venues, and products across India",
 };
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <SiteHeader />
         {children}
         <SiteFooter />
