@@ -5,12 +5,7 @@
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-
-const geistSans = { variable: GeistSans.variable };
-const geistMono = { variable: GeistMono.variable };
 
 export const metadata: Metadata = {
   title: "Mohan Utsav",
@@ -24,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <SiteHeader />
         {children}
         <SiteFooter />
