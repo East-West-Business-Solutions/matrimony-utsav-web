@@ -19,13 +19,13 @@ export default function RegisterPage() {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <Link
             href="/"
-            className="rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            className="rounded-xl border border-rose-200 bg-white px-6 py-3 text-sm font-semibold text-rose-700 hover:bg-rose-50"
           >
             Back to Home
           </Link>
           <a
             href="mailto:support@matrimonyutsav.com"
-            className="rounded-xl bg-rose-700 px-6 py-3 text-sm font-semibold text-white hover:bg-rose-800"
+            className="rounded-xl bg-rose-600 px-6 py-3 text-sm font-semibold text-white hover:bg-rose-700"
           >
             Contact Us
           </a>

@@ -1,4 +1,4 @@
-# Copilot Guardrails – Mohan Utsav
+# Guardrails – Mohan Utsav
 
 These rules MUST be followed for all code changes without exception.
 
@@ -56,7 +56,7 @@ NEVER index URL search params directly.
 
 City filter logic is considered STABLE and FROZEN.
 
-Copilot MUST NOT:
+AI Tools MUST NOT:
 - Change how cities are populated.
 - Change how the city value is read from the URL.
 - Change how the city value is written to the URL.

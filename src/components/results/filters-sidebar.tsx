@@ -38,11 +38,11 @@ export function FiltersSidebar({ cities = [], categories = [] }: FiltersSidebarP
   return (
     <div className="sticky top-20 h-[calc(100vh-6rem)] overflow-auto">
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-black flex items-center justify-between p-2 border-b border-white/10">
+      <div className="sticky top-0 z-10 bg-rose-950/80 flex items-center justify-between p-2 border-b border-white/10">
         <h2 className="text-sm font-semibold">Filters</h2>
         <button
           onClick={clearAll}
-          className="text-sm text-blue-500 hover:underline"
+          className="text-sm text-rose-300 hover:text-rose-200 hover:underline"
         >
           Clear all
         </button>
@@ -109,31 +109,6 @@ export function FiltersSidebar({ cities = [], categories = [] }: FiltersSidebarP
           });
         }}
       />
-
-      {/* Sort Section */}
-      <div>
-        <h3 className="text-sm font-semibold">Sort</h3>
-        <div className="space-y-1">
-          { [
-            { label: "Recommended", value: "recommended" },
-            { label: "Rating", value: "rating" },
-            { label: "Price: Low to High", value: "price_asc" },
-            { label: "Price: High to Low", value: "price_desc" },
-          ].map((sortOption) => (
-            <div key={sortOption.value} className="flex items-center">
-              <input
-                type="radio"
-                name="sort"
-                value={sortOption.value}
-                checked={searchParams.get("sort") === sortOption.value}
-                onChange={() => updateQuery({ sort: sortOption.value })}
-                aria-label={`Sort by ${sortOption.label}`}
-              />
-              <label className="ml-2 text-sm">{sortOption.label}</label>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
@@ -203,7 +178,7 @@ function PriceRangeFilter({
       )}
       <button
         onClick={handleApply}
-        className={`mt-2 w-full text-sm text-white bg-blue-500 rounded p-1 hover:bg-blue-600 ${validationMessage ? "opacity-50 cursor-not-allowed" : ""}`}
+        className={`mt-2 w-full text-sm text-white bg-rose-600 rounded p-1 hover:bg-rose-500 ${validationMessage ? "opacity-50 cursor-not-allowed" : ""}`}
         disabled={!!validationMessage}
       >
         Apply

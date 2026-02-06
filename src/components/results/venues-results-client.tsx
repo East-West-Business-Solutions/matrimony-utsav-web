@@ -26,14 +26,14 @@ function VenueCard({ venue }: { venue: Venue }) {
   const imageUrl = images?.[0];
 
   return (
-    <div className="rounded-xl border border-white/10 bg-white/5 overflow-hidden flex flex-col h-full w-full">
+    <div className="rounded-xl border border-white/10 bg-white/8 overflow-hidden flex flex-col h-full w-full backdrop-blur">
       <div className="relative w-full h-56 overflow-hidden">
         <VenueCardImage src={imageUrl} alt={name} />
       </div>
       <div className="p-4 flex flex-col flex-1 space-y-2">
         <h3 className="text-base font-semibold leading-snug text-white line-clamp-2">{name}</h3>
         <div className="text-sm text-white/60">{city}</div>
-        <div className="inline-flex rounded-full bg-blue-400/15 px-2 py-1 text-xs font-medium text-blue-200">
+        <div className="inline-flex rounded-full bg-rose-400/20 px-2 py-1 text-xs font-medium text-rose-100">
           {category}
         </div>
         <div className="flex items-center text-sm text-white/70">
@@ -42,7 +42,7 @@ function VenueCard({ venue }: { venue: Venue }) {
         </div>
         <div className="mt-auto pt-3">
           <span className="block text-sm text-white">From ₹{price.toLocaleString("en-IN")}</span>
-          <button className="mt-2 w-full h-10 rounded-lg bg-blue-600 text-sm font-medium text-white hover:bg-blue-500">
+          <button className="mt-2 w-full h-10 rounded-lg bg-rose-600 text-sm font-semibold text-white hover:bg-rose-500">
             View details
           </button>
         </div>

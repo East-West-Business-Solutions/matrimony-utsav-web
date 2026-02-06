@@ -49,7 +49,7 @@ export default function FeaturedVenues() {
 
         <Link
           href="/venues"
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          className="inline-flex items-center gap-2 rounded-lg border border-rose-200 bg-white px-3 py-2 text-sm font-semibold text-rose-700 hover:bg-rose-50"
         >
           View All <span aria-hidden>→</span>
         </Link>
@@ -59,9 +59,9 @@ export default function FeaturedVenues() {
         {venues.map((v) => (
           <article
             key={v.name}
-            className="overflow-hidden rounded-2xl border bg-white shadow-sm"
+            className="overflow-hidden rounded-2xl border border-rose-100 bg-white shadow-sm"
           >
-            <div className="relative h-44 bg-slate-200">
+            <div className="relative h-44 bg-rose-50">
               <Image
                 src={v.image}
                 alt={v.name}
@@ -69,7 +69,7 @@ export default function FeaturedVenues() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute right-3 top-3 rounded-full bg-rose-800 px-3 py-1 text-xs font-semibold text-white">
+              <div className="absolute right-3 top-3 rounded-full bg-rose-700 px-3 py-1 text-xs font-semibold text-white">
                 {v.price}
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function FeaturedVenues() {
               <p className="mt-1 text-sm text-slate-600">{v.city}</p>
 
               <div className="mt-3 flex items-center gap-2 text-sm">
-                <span className="inline-flex items-center gap-1 rounded-md bg-amber-50 px-2 py-1 font-semibold text-amber-800">
+                <span className="inline-flex items-center gap-1 rounded-md bg-rose-50 px-2 py-1 font-semibold text-rose-700">
                   <Star /> {v.rating}
                 </span>
                 <span className="text-slate-500">({v.reviews})</span>

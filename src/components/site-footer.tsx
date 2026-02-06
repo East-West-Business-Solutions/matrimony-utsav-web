@@ -85,16 +85,16 @@ function SocialIcon({
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t bg-slate-950 text-slate-200">
+    <footer className="border-t border-rose-900 bg-gradient-to-b from-rose-950 to-rose-900 text-slate-100">
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-10 lg:grid-cols-4">
           {/* Column 1 */}
           <div>
-            <div className="text-2xl font-bold tracking-tight">Mohan Utsav</div>
-            <ul className="mt-6 space-y-3 text-sm text-slate-300">
+            <div className="text-2xl font-bold tracking-tight text-rose-400">Mohan Utsav</div>
+            <ul className="mt-6 space-y-3 text-sm text-slate-200">
               {platformLinks.map((l) => (
                 <li key={l.label}>
-                  <Link className="hover:text-white" href={l.href}>
+                  <Link className="hover:text-rose-200" href={l.href}>
                     {l.label}
                   </Link>
                 </li>
@@ -105,10 +105,10 @@ export default function SiteFooter() {
           {/* Column 2 */}
           <div>
             <div className="text-lg font-semibold text-white">Company</div>
-            <ul className="mt-6 space-y-3 text-sm text-slate-300">
+            <ul className="mt-6 space-y-3 text-sm text-slate-200">
               {companyLinks.map((l) => (
                 <li key={l.label}>
-                  <Link className="hover:text-white" href={l.href}>
+                  <Link className="hover:text-rose-200" href={l.href}>
                     {l.label}
                   </Link>
                 </li>
@@ -119,11 +119,11 @@ export default function SiteFooter() {
           {/* Column 3 */}
           <div>
             <div className="text-lg font-semibold text-white">Our Partners</div>
-            <ul className="mt-6 space-y-3 text-sm text-slate-300">
+            <ul className="mt-6 space-y-3 text-sm text-slate-200">
               {partnerLinks.map((l) => (
                 <li key={l.label}>
                   <Link
-                    className="hover:text-white"
+                    className="hover:text-rose-200"
                     href={l.href}
                     target={l.href.startsWith("http") ? "_blank" : undefined}
                   >
@@ -138,12 +138,12 @@ export default function SiteFooter() {
           <div>
             <div className="text-lg font-semibold text-white">Contact Us</div>
 
-            <div className="mt-6 space-y-6 text-sm text-slate-300">
+            <div className="mt-6 space-y-6 text-sm text-slate-200">
               <div>
                 <div className="font-semibold text-slate-100">
                   Toll Free – 1800 41 99099
                 </div>
-                <div className="mt-1 text-slate-400">
+                <div className="mt-1 text-slate-300/80">
                   9:30 AM to 6:30 PM (Mon–Sun)
                 </div>
                 <div className="mt-4 font-semibold text-slate-100">
@@ -156,16 +156,16 @@ export default function SiteFooter() {
                   Connect with us
                 </div>
                 <div className="mt-4 flex items-center gap-6 text-slate-200">
-                  <Link aria-label="Facebook" href="#" className="hover:text-white">
+                  <Link aria-label="Facebook" href="#" className="hover:text-rose-200">
                     <SocialIcon kind="facebook" />
                   </Link>
-                  <Link aria-label="YouTube" href="#" className="hover:text-white">
+                  <Link aria-label="YouTube" href="#" className="hover:text-rose-200">
                     <SocialIcon kind="youtube" />
                   </Link>
-                  <Link aria-label="Twitter/X" href="#" className="hover:text-white">
+                  <Link aria-label="Twitter/X" href="#" className="hover:text-rose-200">
                     <SocialIcon kind="twitter" />
                   </Link>
-                  <Link aria-label="Instagram" href="#" className="hover:text-white">
+                  <Link aria-label="Instagram" href="#" className="hover:text-rose-200">
                     <SocialIcon kind="instagram" />
                   </Link>
                 </div>
@@ -189,9 +189,8 @@ export default function SiteFooter() {
                     Download on the App Store
                   </Link>
                 </div>
-                <p className="mt-4 text-xs leading-5 text-slate-400">
-                  Mohan Utsav is part of the Parinay ecosystem. Please report
-                  inappropriate content via the “Report a Problem” link.
+                <p className="mt-4 text-xs leading-5 text-slate-300/80">
+                  Mohan Utsav is part of the Parinay ecosystem. Please report inappropriate content via the “Report a Problem” link.
                 </p>
               </div>
             </div>
@@ -199,7 +198,7 @@ export default function SiteFooter() {
         </div>
 
         {/* Bottom legal */}
-        <div className="mt-12 border-t border-white/10 pt-6 text-xs text-slate-400">
+        <div className="mt-12 border-t border-white/10 pt-6 text-xs text-slate-300/80">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>© {new Date().getFullYear()} Mohan Utsav. All rights reserved.</div>
             <div>All trademarks are the property of their respective owners.</div>

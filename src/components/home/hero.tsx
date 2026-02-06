@@ -46,12 +46,12 @@ export default function Hero() {
   };
 
   return (
-    <section className="bg-black py-16">
-      <div className="mx-auto max-w-6xl px-4 text-center">
-        <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+    <section className="bg-gradient-to-b from-rose-950 to-rose-900 py-16">
+      <div className="mx-auto max-w-6xl px-4 text-center text-white">
+        <h1 className="text-3xl font-semibold tracking-tight text-rose-50 sm:text-5xl">
           Mohan Utsav
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-white/70 sm:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm text-rose-100/90 sm:text-base">
           Explore trusted wedding vendors, services, and products for your special day.
         </p>
 
@@ -61,10 +61,10 @@ export default function Hero() {
             <button
               key={tab}
               onClick={() => handleTabChange(tab)}
-              className={`px-4 py-2 text-sm font-medium rounded-full ${
+              className={`px-4 py-2 text-sm font-medium rounded-full transition ${
                 activeTab === tab
-                  ? "bg-rose-700 text-white"
-                  : "bg-white/10 text-white hover:bg-white/20"
+                  ? "bg-rose-100 text-rose-800"
+                  : "bg-white/10 text-rose-100 hover:bg-white/20"
               }`}
             >
               {tab}
@@ -73,25 +73,25 @@ export default function Hero() {
         </div>
 
         {/* Search Box */}
-        <div className="mt-6 mx-auto w-full max-w-4xl rounded-lg bg-white/10 p-6 text-left">
+        <div className="mt-6 mx-auto w-full max-w-4xl rounded-lg bg-rose-950/30 p-6 text-left">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <select
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className="w-full rounded-lg border border-white/20 bg-black px-4 py-2 text-sm text-white placeholder-white/50 focus:border-rose-700 focus:ring-rose-700"
+              className="city-select w-full rounded-lg border border-rose-300/60 bg-rose-50 px-4 py-2 text-sm text-slate-800 focus:border-rose-400 focus:ring-2 focus:ring-rose-400/40"
             >
               <option value="" disabled>
                 Select city
               </option>
-              {cities.map((city) => (
-                <option key={city} value={city}>
-                  {city}
+              {cities.map((cityName) => (
+                <option key={cityName} value={cityName}>
+                  {cityName}
                 </option>
               ))}
             </select>
             <button
               onClick={handleSearch}
-              className="w-full rounded-lg bg-rose-700 px-6 py-2 text-sm font-medium text-white hover:bg-rose-800 sm:w-auto"
+              className="w-full rounded-lg bg-rose-600 px-6 py-2 text-sm font-semibold text-white hover:bg-rose-500 sm:w-auto"
             >
               Search
             </button>
@@ -103,10 +103,10 @@ export default function Hero() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`mr-3 rounded-full px-4 py-2 text-sm font-medium ${
+                className={`mr-3 rounded-full px-4 py-2 text-sm font-medium transition ${
                   selectedCategory === category
-                    ? "bg-rose-700 text-white"
-                    : "bg-white/10 text-white hover:bg-white/20"
+                    ? "bg-rose-100 text-rose-800"
+                    : "bg-white/10 text-rose-100 hover:bg-white/20"
                 }`}
                 aria-pressed={selectedCategory === category}
               >

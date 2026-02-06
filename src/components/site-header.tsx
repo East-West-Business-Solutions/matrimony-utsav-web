@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function SiteHeader() {
   return (
-    <header className="border-b border-slate-200 bg-white shadow-sm">
+    <header className="border-b border-rose-100 bg-white shadow-sm">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link
           href="/"
-          className="text-xl font-bold tracking-tight text-slate-900 hover:text-rose-700"
+          className="text-xl font-bold tracking-tight text-rose-700 hover:text-rose-600"
         >
           Mohan Utsav
         </Link>
@@ -14,25 +14,25 @@ export default function SiteHeader() {
         <nav className="flex items-center gap-6 text-sm font-medium">
           <Link
             href="/"
-            className="text-slate-600 hover:text-slate-900"
+            className="text-slate-600 hover:text-rose-700"
           >
             Home
           </Link>
           <Link
             href="/venues"
-            className="text-slate-600 hover:text-slate-900"
+            className="text-slate-600 hover:text-rose-700"
           >
             Venues
           </Link>
           <Link
             href="/services"
-            className="text-slate-600 hover:text-slate-900"
+            className="text-slate-600 hover:text-rose-700"
           >
             Services
           </Link>
           <Link
             href="/products"
-            className="text-slate-600 hover:text-slate-900"
+            className="text-slate-600 hover:text-rose-700"
           >
             Products
           </Link>

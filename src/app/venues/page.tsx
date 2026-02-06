@@ -1,7 +1,8 @@
 import ResultsLayout from "@/components/results/results-layout";
 import { FiltersSidebar } from "@/components/results/filters-sidebar";
-import VenuesResultsCountClient from "../../components/results/venues-results-count-client";
-import VenuesResultsClient from "../../components/results/venues-results-client";
+import Breadcrumbs from "@/components/results/breadcrumbs";
+import VenuesResultsCountClient from "@/components/results/venues-results-count-client";
+import VenuesResultsClient from "@/components/results/venues-results-client";
 import { Suspense } from "react";
 
 const VENUE_CATEGORIES = [
@@ -27,10 +28,17 @@ export default function VenuesPage() {
           />
         }
         topBar={
-          <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-semibold">Venues</h1>
-            <VenuesResultsCountClient />
-          </div>
+          <>
+            <Breadcrumbs
+              sectionLabel="Venues"
+              sectionHref="/venues"
+              variant="dark"
+            />
+            <div className="flex items-center justify-between">
+              <h1 className="text-2xl font-semibold">Venues</h1>
+              <VenuesResultsCountClient />
+            </div>
+          </>
         }
       >
         <VenuesResultsClient />

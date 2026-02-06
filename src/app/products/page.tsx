@@ -1,4 +1,21 @@
-import Link from "next/link";
+import ResultsLayout from "@/components/results/results-layout";
+import { FiltersSidebar } from "@/components/results/filters-sidebar";
+import Breadcrumbs from "@/components/results/breadcrumbs";
+import ResultsToolbar from "@/components/results/results-toolbar";
+import ProductsResultsClient from "@/components/results/products-results-client";
+import { Suspense } from "react";
+
+const PRODUCT_CATEGORIES = [
+  "Invitations",
+  "Return Gifts",
+  "Jewellery",
+  "Accessories",
+  "Décor Items",
+];
+
+const CITIES = ["Delhi", "Mumbai", "Bangalore", "Hyderabad", "Chennai", "Kolkata"];
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Wedding Products | Mohan Utsav",
@@ -7,30 +24,28 @@ export const metadata = {
 
 export default function ProductsPage() {
   return (
-    <main className="mx-auto max-w-2xl px-4 py-20 text-center">
-      <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-sm">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-          Wedding Products
-        </h1>
-        <p className="mt-4 text-slate-600">
-          Shop invitations, jewellery, return gifts and décor. Full catalog
-          coming soon.
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-          <Link
-            href="/venues"
-            className="rounded-xl bg-rose-700 px-6 py-3 text-sm font-semibold text-white hover:bg-rose-800"
-          >
-            Explore Venues
-          </Link>
-          <Link
-            href="/"
-            className="rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            Back to Home
-          </Link>
-        </div>
-      </div>
-    </main>
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResultsLayout
+        variant="commerce"
+        sidebar={
+          <FiltersSidebar
+            cities={CITIES}
+            categories={PRODUCT_CATEGORIES}
+          />
+        }
+        topBar={
+          <>
+            <Breadcrumbs
+              sectionLabel="Products"
+              sectionHref="/products"
+              variant="light"
+            />
+            <ResultsToolbar title="Products" dataSource="products" />
+          </>
+        }
+      >
+        <ProductsResultsClient />
+      </ResultsLayout>
+    </Suspense>
   );
 }

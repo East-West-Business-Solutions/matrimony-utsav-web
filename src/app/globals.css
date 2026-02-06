@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Red-focused matrimonial palette – subdued, consistent */
+  --background: #fef7f7;
+  --foreground: #1c1917;
+  --primary: #b91c1c;
+  --primary-dark: #991b1b;
+  --accent: #e11d48;
+  --muted: #fce7e7;
 }
 
 @theme inline {
@@ -22,4 +27,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* City dropdown: match hero rose tone, ensure options are visible */
+select.city-select option {
+  background: #fff1f2; /* rose-50 */
+  color: #1e293b;
 }

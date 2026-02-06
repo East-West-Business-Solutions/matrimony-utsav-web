@@ -21,9 +21,9 @@ export default function ExploreServices() {
         {items.map((it) => (
           <div
             key={it.title}
-            className="rounded-2xl border bg-white p-6 shadow-sm"
+            className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm hover:shadow-md transition"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 text-lg font-bold">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-50 text-lg font-bold text-rose-700">
               {it.title.slice(0, 1)}
             </div>
             <h3 className="mt-4 font-semibold">{it.title}</h3>
