@@ -10,7 +10,6 @@
     "check": "next lint && tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "geist": "^1.5.1",
     "next": "16.1.5",
     "react": "19.0.4",
     "react-dom": "19.0.4"
